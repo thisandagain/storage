@@ -38,9 +38,18 @@ YourImplementation.m
 - (void)persistData:(id)data withExtension:(NSString *)ext toLocation:(Location)location success:(void (^)(NSURL *url, NSUInteger size))success failure:(void (^)(NSError *error))failure;
 ```
 
-Categories simply abstract the process of calling this method on `EDStorageManager` by handling conversion of the class instance into a NSData object. For example, the storage category for UIImage simply passes self into NSData by calling `UIImageJPEGRepresentation()`. **If you create a category that you find useful, please let me know! I would love to add it to the project.**
+Categories simply abstract the process of calling this method on `EDStorageManager` by handling conversion of the class instance into a NSData object. For example, the storage category for UIImage simply passes self into NSData by calling `UIImageJPEGRepresentation()`. 
+
+**If you create a category that you find useful, please let me know! I would love to add it to the project.**
 
 ---
+
+## Locations
+```objective-c
+kEDStorageDirectoryCache
+kEDStorageDirectoryTemp
+kEDStorageDirectoryDocuments
+```
 
 ## NSData+Storage Methods
 ```objective-c
