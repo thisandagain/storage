@@ -51,7 +51,12 @@
 
 - (IBAction)saveToDocuments:(id)sender
 {
-    
+    [sampleImage.image persistToDocuments:^(NSURL *url) {
+        NSLog(@"URL: %@", url);
+        [self updateSavedImagePreview:[url path]];
+    } failure:^(NSException *exception) {
+        NSLog(@"Exception: %@", exception);
+    }];
 }
 
 #pragma mark - Render
