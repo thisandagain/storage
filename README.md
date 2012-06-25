@@ -1,9 +1,9 @@
 ## Storage
 #### Persist all the things! Wheee!
 
-In keeping things [DRY](http://en.wikipedia.org/wiki/Don't_repeat_yourself), EDStorage was created to address the fair amount of boilerplate that often gets created to deal with writing data to disk within iOS applications in a performant manner. Disk I/O within iOS is syncronous and so much of this boilerplate is often written to improve performance by moving I/O to a background thread. EDStorage accomplishes this by transforming all write instances into `NSOperations` which are managed by a singleton class that includes a `NSOperationQueue`. All of this is done in the background while providing high-level methods to the user via categories. 
+In attempting to keep things [DRY](http://en.wikipedia.org/wiki/Don't_repeat_yourself), EDStorage was created to address the fair amount of boilerplate that often gets created to deal with writing data to disk within iOS applications in a performant manner. Disk I/O within iOS is syncronous and so much of this boilerplate is often written to improve performance by moving I/O to a background thread. EDStorage accomplishes this by transforming each write instance into a `NSOperation` which is managed by a single `NSOperationQueue`. All of this is done in the background while providing high-level methods to the user via categories. 
 
-EDStorage strives to provide three things:
+**EDStorage strives to provide three things:**
 - An abstract interface based on categories that makes persisting data to disk simple.
 - A highly generic management interface that makes extending EDStorage equaly simple.
 - To be fast and safe.
@@ -20,41 +20,46 @@ YourImplementation.m
 ```objective-c
 - (void)doSomething
 {
-    UIImage *image      = [UIImage imageNamed:@"keyboardCat.png"];
+    UIImage *image = [UIImage imageNamed:@"keyboardCat.png"];
     
-    [image persistToDocuments:^(NSURL *url, NSUInteger size) {
-        NSLog(@"FTW! %@ | %d bytes", url, size);
-    } failure:^(NSException *exception) {
-        NSLog(@"UH OH! %@", exception);
+    [image persistToCache:^(NSURL *url, NSUInteger size) {
+        NSLog(@"FTW!: %@ | %d bytes", url, size);
+        [self updateSavedImagePreview:[url path]];
+    } failure:^(NSError *error) {
+        NSLog(@"UH OH: %@", error);
     }];
 }
 ```
 
 ## Implementing A Custom Category
-`EDStorageManager` provides a single block method for interfacing with categories. 
+`EDStorageManager` provides a single block method for interfacing with categories:
 
-If you create a category that you find useful, please let me know! I would love to add it to the project.
+```objective-c
+- (void)persistData:(id)data withExtension:(NSString *)ext toLocation:(Location)location success:(void (^)(NSURL *url, NSUInteger size))success failure:(void (^)(NSError *error))failure;
+```
+
+Categories simply abstract the process of calling this method on `EDStorageManager` by handling conversion of the class instance into a NSData object. For example, the storage category for UIImage simply passes self into NSData by calling `UIImageJPEGRepresentation()`. **If you create a category that you find useful, please let me know! I would love to add it to the project.**
 
 ---
 
-## Included Categories
+## NSData+Storage Methods
 ```objective-c
-NSData+Storage.h
-UIImage+Storage.h
-UIView+Storage.h
+- (void)persistToCacheWithExtension:(NSString *)extension success:(void (^)(NSURL *url, NSUInteger size))success failure:(void (^)(NSError *error))failure;
+- (void)persistToTempWithExtension:(NSString *)extension success:(void (^)(NSURL *url, NSUInteger size))success failure:(void (^)(NSError *error))failure;
+- (void)persistToDocumentsWithExtension:(NSString *)extension success:(void (^)(NSURL *url, NSUInteger size))success failure:(void (^)(NSError *error))failure;
 ```
 
-## Methods
+## UIImage+Storage Methods
 ```objective-c
-- (void)persistToCache:(void (^)(NSURL *url))success failure:(void (^)(NSException *exception))failure;
-- (void)persistToTemp:(void (^)(NSURL *url))success failure:(void (^)(NSException *exception))failure;
-- (void)persistToDocuments:(void (^)(NSURL *url))success failure:(void (^)(NSException *exception))failure;
+- (void)persistToCache:(void (^)(NSURL *url, NSUInteger size))success failure:(void (^)(NSError *error))failure;
+- (void)persistToTemp:(void (^)(NSURL *url, NSUInteger size))success failure:(void (^)(NSError *error))failure;
+- (void)persistToDocuments:(void (^)(NSURL *url, NSUInteger size))success failure:(void (^)(NSError *error))failure;
 ```
 
 ---
 
 ## iOS Support
-EDStorage is tested on iOS 5.0.1 and up. Older versions of iOS may work but are not supported.
+EDStorage is tested on iOS 5 and up. Older versions of iOS may work but are not currently supported.
 
 ## ARC
-ARC is not supported at this time. It is most certainly on the big 'ol "to-do" list though.
+If you are including EDStorage in a project that uses [Automatic Reference Counting (ARC)](http://developer.apple.com/library/ios/#releasenotes/ObjectiveC/RN-TransitioningToARC/Introduction/Introduction.html), you will need to set the `-fno-objc-arc` compiler flag on all of the EDStorage source files. To do this in Xcode, go to your active target and select the "Build Phases" tab. Now select all EDStorage source files, press Enter, insert `-fno-objc-arc` and then "Done" to disable ARC for EDStorage.
