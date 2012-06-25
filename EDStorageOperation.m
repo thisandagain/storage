@@ -10,10 +10,10 @@
 
 @implementation EDStorageOperation
 
-@synthesize target;
-@synthesize size;
-@synthesize complete;
-@synthesize error;
+@synthesize target  = _target;
+@synthesize size = _size;
+@synthesize complete = _complete;
+@synthesize error = _error;
 
 #pragma mark - Init
 
@@ -21,11 +21,15 @@
 {
     if (![super init]) return nil;
     
-    dataset         = [data retain];
-    self.target     = url;
-    self.size       = [dataset length];
-    self.complete   = false;
-    self.error      = NULL;
+    dataset     = [data retain];
+    _size       = [dataset length];
+    _complete   = false;
+    
+    _target     = [[NSURL alloc] init];
+    self.target = url;
+    
+    _error      = [[NSError alloc] init];
+    self.error  = NULL;
     
     return self;
 }
@@ -37,7 +41,7 @@
     @try 
     {        
         NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-        self.complete = [dataset writeToURL:target options:NSDataWritingAtomic error:&error];
+        self.complete = [dataset writeToURL:self.target options:NSDataWritingAtomic error:&_error];
         [pool release];
     } @catch (NSException *exception) {
         [exception raise];
@@ -49,8 +53,8 @@
 - (void)dealloc
 {    
     [dataset release]; dataset = nil;
-    [target release]; target = nil;
-    [error release]; error = NULL;
+    [_target release]; _target = nil;
+    [_error release]; _error = nil;
     
     [super dealloc];
 }

@@ -15,5 +15,4 @@
 - (void)persistToTempWithExtension:(NSString *)extension success:(void (^)(NSURL *url, NSUInteger size))success failure:(void (^)(NSError *error))failure;
 - (void)persistToDocumentsWithExtension:(NSString *)extension success:(void (^)(NSURL *url, NSUInteger size))success failure:(void (^)(NSError *error))failure;
 
-
 @end

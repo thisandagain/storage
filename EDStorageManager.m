@@ -18,7 +18,7 @@
 
 @implementation EDStorageManager
 
-@synthesize queue;
+@synthesize queue = _queue;
 
 #pragma mark - Init
 
@@ -34,13 +34,8 @@
     self = [super init];
     if (self)
     {
-        NSOperationQueue *tQueue = [[NSOperationQueue alloc] init];
-        self.queue = tQueue;
+        _queue = [[NSOperationQueue alloc] init];
         self.queue.maxConcurrentOperationCount = 2;
-        
-        //
-        
-        [tQueue release];
     }
     return self;
 }
@@ -71,7 +66,7 @@
         
         [operation setCompletionBlock:nil];     // Force dealloc
     }];
-    [queue addOperation:operation];
+    [self.queue addOperation:operation];
     [operation release];
 }
 
@@ -117,7 +112,7 @@
 
 - (void)releaseObjects
 {
-    [queue release]; queue = nil;
+    [_queue release]; _queue = nil;
 }
 
 - (void)dealloc
