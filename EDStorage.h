@@ -6,6 +6,5 @@
 //  Copyright (c) 2012 Andrew Sliwinski. All rights reserved.
 //
 
+#import "NSData+Storage.h"
 #import "UIImage+Storage.h"
-//#import "UIView+Storage.h"
-//#import "NSData+Storage.h"
