@@ -68,8 +68,8 @@
 		C32B9C3D15966C2A00AD3365 /* EDStorageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EDStorageManager.m; path = ../EDStorageManager.m; sourceTree = "<group>"; };
 		C37C5CD415968ED50089F8C4 /* EDStorageOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EDStorageOperation.h; path = ../EDStorageOperation.h; sourceTree = "<group>"; };
 		C37C5CD515968ED50089F8C4 /* EDStorageOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EDStorageOperation.m; path = ../EDStorageOperation.m; sourceTree = "<group>"; };
-		C37C5CD71597D0110089F8C4 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.md; sourceTree = "<group>"; };
-		C37C5CD81597D0110089F8C4 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		C37C5CD71597D0110089F8C4 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE.md; path = ../LICENSE.md; sourceTree = "<group>"; };
+		C37C5CD81597D0110089F8C4 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
