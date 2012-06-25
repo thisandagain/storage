@@ -47,7 +47,7 @@
 
 #pragma mark - Public methods
 
-- (void)persistData:(id)data withExtension:(NSString *)ext toLocation:(Location)location success:(void (^)(NSURL *, NSUInteger))success failure:(void (^)(NSException *))failure
+- (void)persistData:(id)data withExtension:(NSString *)ext toLocation:(Location)location success:(void (^)(NSURL *, NSUInteger))success failure:(void (^)(NSError *))failure
 {       
     // Create URL
     NSURL *url = [self createAssetFileURLForLocation:location withExtension:ext];
@@ -55,9 +55,18 @@
     // Perform operation
     EDStorageOperation *operation = [[EDStorageOperation alloc] initWithData:data forURL:url];
     [operation setCompletionBlock:^{
-        // @note Handle errors & exceptions here...
-        success(operation.target, operation.size);
-                
+        if (operation.complete)
+        {
+            success(operation.target, operation.size);
+        } else {
+            if (operation.error != NULL)
+            {
+                failure(operation.error);
+            } else {
+                failure([NSError errorWithDomain:@"com.ed.storage" code:100 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:operation, @"operation", url, @"url", nil]]);
+            }
+        }
+        
         //
         
         [operation setCompletionBlock:nil];     // Force dealloc
@@ -94,6 +103,7 @@
             directory      = [paths objectAtIndex:0];
             break;
         default:
+            [NSException raise:@"Invalid location value" format:@"Location %@ is invalid", location];
             break;
     }
     

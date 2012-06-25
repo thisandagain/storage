@@ -31,30 +31,30 @@ NSString * const kEDJpgQualityKey = @"kEDJpgQualityKey";
 
 #pragma mark - Public methods
 
-- (void)persistToCache:(void (^)(NSURL *))success failure:(void (^)(NSException *))failure
+- (void)persistToCache:(void (^)(NSURL *, NSUInteger))success failure:(void (^)(NSError *))failure
 {
     [[EDStorageManager sharedInstance] persistData:[self jpgRepresentation] withExtension:@"jpg" toLocation:kEDStorageDirectoryCache success:^(NSURL *url, NSUInteger size) {
-        success(url);
-    } failure:^(NSException *exception) {
-        failure(exception);
+        success(url, size);
+    } failure:^(NSError *error) {
+        failure(error);
     }];
 }
 
-- (void)persistToTemp:(void (^)(NSURL *))success failure:(void (^)(NSException *))failure
+- (void)persistToTemp:(void (^)(NSURL *, NSUInteger))success failure:(void (^)(NSError *))failure
 {
     [[EDStorageManager sharedInstance] persistData:[self jpgRepresentation] withExtension:@"jpg" toLocation:kEDStorageDirectoryTemp success:^(NSURL *url, NSUInteger size) {
-        success(url);
-    } failure:^(NSException *exception) {
-        failure(exception);
+        success(url, size);
+    } failure:^(NSError *error) {
+        failure(error);
     }];
 }
 
-- (void)persistToDocuments:(void (^)(NSURL *))success failure:(void (^)(NSException *))failure
+- (void)persistToDocuments:(void (^)(NSURL *, NSUInteger))success failure:(void (^)(NSError *))failure
 {
     [[EDStorageManager sharedInstance] persistData:[self jpgRepresentation] withExtension:@"jpg" toLocation:kEDStorageDirectoryDocuments success:^(NSURL *url, NSUInteger size) {
-        success(url);
-    } failure:^(NSException *exception) {
-        failure(exception);
+        success(url, size);
+    } failure:^(NSError *error) {
+        failure(error);
     }];
 }
 

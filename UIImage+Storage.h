@@ -11,9 +11,9 @@
 
 @interface UIImage (Storage)
 
-- (void)persistToCache:(void (^)(NSURL *url))success failure:(void (^)(NSException *exception))failure;
-- (void)persistToTemp:(void (^)(NSURL *url))success failure:(void (^)(NSException *exception))failure;
-- (void)persistToDocuments:(void (^)(NSURL *url))success failure:(void (^)(NSException *exception))failure;
+- (void)persistToCache:(void (^)(NSURL *url, NSUInteger size))success failure:(void (^)(NSError *error))failure;
+- (void)persistToTemp:(void (^)(NSURL *url, NSUInteger size))success failure:(void (^)(NSError *error))failure;
+- (void)persistToDocuments:(void (^)(NSURL *url, NSUInteger size))success failure:(void (^)(NSError *error))failure;
 
 @property (nonatomic, retain) NSNumber *jpgQuality;
 

@@ -11,12 +11,12 @@
 @interface EDStorageOperation : NSOperation
 {
     id dataset;
-    NSURL *target;
-    NSUInteger size;
 }
 
 @property (atomic, retain) NSURL *target;
 @property (atomic, assign) NSUInteger size;
+@property (atomic, assign) BOOL complete;
+@property (atomic, retain) NSError *error;
 
 - (id)initWithData:(id)data forURL:(NSURL *)url;
 

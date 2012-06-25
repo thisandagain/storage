@@ -12,6 +12,8 @@
 
 @synthesize target;
 @synthesize size;
+@synthesize complete;
+@synthesize error;
 
 #pragma mark - Init
 
@@ -22,6 +24,8 @@
     dataset         = [data retain];
     self.target     = url;
     self.size       = [dataset length];
+    self.complete   = false;
+    self.error      = NULL;
     
     return self;
 }
@@ -33,13 +37,10 @@
     @try 
     {        
         NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-        
-        NSError *error;
-        [dataset writeToURL:target options:NSDataWritingAtomic error:&error];
-        
+        self.complete = [dataset writeToURL:target options:NSDataWritingAtomic error:&error];
         [pool release];
     } @catch (NSException *exception) {
-        NSLog(@"EDStorageOperation: Caught %@: %@", [exception name], [exception reason]);
+        [exception raise];
     }
 }
 
@@ -49,6 +50,7 @@
 {    
     [dataset release]; dataset = nil;
     [target release]; target = nil;
+    [error release]; error = NULL;
     
     [super dealloc];
 }
