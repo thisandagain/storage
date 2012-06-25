@@ -21,12 +21,19 @@ return _sharedObject; \
 
 //
 
+typedef enum 
+{
+    kEDStorageDirectoryCache,
+    kEDStorageDirectoryTemp,
+    kEDStorageDirectoryDocuments
+} Location;
+
 @interface EDStorageManager : NSObject
 {
     @private NSOperationQueue *queue;
 }
 
 + (EDStorageManager *)sharedInstance;
-- (void)persistData:(id)data withExtension:(NSString *)ext toLocation:(NSString *)location success:(void (^)(NSURL *url))success failure:(void (^)(NSException *exception))failure;
+- (void)persistData:(id)data withExtension:(NSString *)ext toLocation:(Location)location success:(void (^)(NSURL *url, NSUInteger size))success failure:(void (^)(NSException *exception))failure;
 
 @end

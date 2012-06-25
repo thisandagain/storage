@@ -33,7 +33,7 @@ NSString * const kEDJpgQualityKey = @"kEDJpgQualityKey";
 
 - (void)persistToCache:(void (^)(NSURL *))success failure:(void (^)(NSException *))failure
 {
-    [[EDStorageManager sharedInstance] persistData:[self jpgRepresentation] withExtension:@"jpg" toLocation:@"cache" success:^(NSURL *url) {
+    [[EDStorageManager sharedInstance] persistData:[self jpgRepresentation] withExtension:@"jpg" toLocation:kEDStorageDirectoryCache success:^(NSURL *url, NSUInteger size) {
         success(url);
     } failure:^(NSException *exception) {
         failure(exception);
@@ -42,7 +42,7 @@ NSString * const kEDJpgQualityKey = @"kEDJpgQualityKey";
 
 - (void)persistToTemp:(void (^)(NSURL *))success failure:(void (^)(NSException *))failure
 {
-    [[EDStorageManager sharedInstance] persistData:[self jpgRepresentation] withExtension:@"jpg" toLocation:@"temp" success:^(NSURL *url) {
+    [[EDStorageManager sharedInstance] persistData:[self jpgRepresentation] withExtension:@"jpg" toLocation:kEDStorageDirectoryTemp success:^(NSURL *url, NSUInteger size) {
         success(url);
     } failure:^(NSException *exception) {
         failure(exception);
@@ -51,7 +51,7 @@ NSString * const kEDJpgQualityKey = @"kEDJpgQualityKey";
 
 - (void)persistToDocuments:(void (^)(NSURL *))success failure:(void (^)(NSException *))failure
 {
-    [[EDStorageManager sharedInstance] persistData:[self jpgRepresentation] withExtension:@"jpg" toLocation:@"documents" success:^(NSURL *url) {
+    [[EDStorageManager sharedInstance] persistData:[self jpgRepresentation] withExtension:@"jpg" toLocation:kEDStorageDirectoryDocuments success:^(NSURL *url, NSUInteger size) {
         success(url);
     } failure:^(NSException *exception) {
         failure(exception);

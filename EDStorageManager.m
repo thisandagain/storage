@@ -47,26 +47,16 @@
 
 #pragma mark - Public methods
 
-- (void)persistData:(id)data withExtension:(NSString *)ext toLocation:(NSString *)location success:(void (^)(NSURL *))success failure:(void (^)(NSException *))failure
+- (void)persistData:(id)data withExtension:(NSString *)ext toLocation:(Location)location success:(void (^)(NSURL *, NSUInteger))success failure:(void (^)(NSException *))failure
 {       
-    // Storage object
-    NSURL *url = nil;
-    
-    // Parse location
-    if ([location isEqualToString:@"cache"])
-    {
-        url = [self createAssetFileURL:0 withExtension:ext];
-    } else if ([location isEqualToString:@"temp"]) {
-        url = [self createAssetFileURL:1 withExtension:ext];
-    } else {
-        failure([NSException exceptionWithName:@"Invalid URL" reason:@"The location provided was not a valid type." userInfo:nil]);
-    }
+    // Create URL
+    NSURL *url = [self createAssetFileURLForLocation:location withExtension:ext];
     
     // Perform operation
     EDStorageOperation *operation = [[EDStorageOperation alloc] initWithData:data forURL:url];
     [operation setCompletionBlock:^{
         // @note Handle errors & exceptions here...
-        success(operation.target);
+        success(operation.target, operation.size);
                 
         //
         
@@ -79,30 +69,36 @@
 #pragma mark - Private methods
 
 /**
- * Creates an asset file url (path) using type declaration and file extension.
+ * Creates an asset file url (path) using location declaration and file extension.
  *
- * @param {int} Type (0 - NSTemporaryDirectory() | 1 - NSCachesDirectory)
+ * @param {Location} ENUM type
  * @param {NSString} Extension (e.g. @"jpg")
  *
  * @return {NSURL}
  */
-- (NSURL *)createAssetFileURL:(int)type withExtension:(NSString *)extension
+- (NSURL *)createAssetFileURLForLocation:(Location)location withExtension:(NSString *)extension
 {
     NSArray *paths = nil;
-    NSString *documentsDirectory = nil;
+    NSString *directory = nil;
     
-    switch (type) {
-        case 0:
-            paths                   = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-            documentsDirectory      = [paths objectAtIndex:0];
+    switch (location) {
+        case kEDStorageDirectoryCache:
+            paths          = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+            directory      = [paths objectAtIndex:0];
+            break;
+        case kEDStorageDirectoryTemp:
+            directory      = NSTemporaryDirectory();
+            break;
+        case kEDStorageDirectoryDocuments:
+            paths          = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+            directory      = [paths objectAtIndex:0];
             break;
         default:
-            documentsDirectory      = NSTemporaryDirectory();
             break;
     }
     
-    NSString *assetName             = [NSString stringWithFormat:@"%@.%@", [[NSProcessInfo processInfo] globallyUniqueString], extension];
-    NSString *assetPath             = [documentsDirectory stringByAppendingPathComponent:assetName];
+    NSString *assetName    = [NSString stringWithFormat:@"%@.%@", [[NSProcessInfo processInfo] globallyUniqueString], extension];
+    NSString *assetPath    = [directory stringByAppendingPathComponent:assetName];
     
     return [NSURL fileURLWithPath:assetPath];
 }

@@ -11,6 +11,7 @@
 @implementation EDStorageOperation
 
 @synthesize target;
+@synthesize size;
 
 #pragma mark - Init
 
@@ -20,6 +21,7 @@
     
     dataset         = [data retain];
     self.target     = url;
+    self.size       = [dataset length];
     
     return self;
 }
