@@ -9,7 +9,7 @@ EDStorage strives to provide three things:
 - To be fast and safe.
 
 ## Basic Use
-The easiest way to get going with EDStorage is to take a look at the included example application. The XCode project file can be found in `example > storage.xcodeproj`. That said, if you are more inclined to read instructions than pick away at sample code (you know who you are)... read on:
+The easiest way to get going with EDStorage is to take a look at the included example application. The XCode project file can be found in `example > storage.xcodeproj`. That said, if you are more inclined to read code than pick away at a sample project (you know who you are)... read on:
 
 YourInterface.h
 ```objective-c
@@ -23,7 +23,7 @@ YourImplementation.m
     UIImage *image      = [UIImage imageNamed:@"keyboardCat.png"];
     
     [image persistToDocuments:^(NSURL *url, NSUInteger size) {
-        NSLog(@"WIN! %@ | %d bytes", url, size);
+        NSLog(@"FTW! %@ | %d bytes", url, size);
     } failure:^(NSException *exception) {
         NSLog(@"UH OH! %@", exception);
     }];
