@@ -6,7 +6,7 @@ In attempting to keep things [DRY](http://en.wikipedia.org/wiki/Don't_repeat_you
 **EDStorage strives to provide three things:**
 - An abstract interface based on categories that makes persisting data to disk simple.
 - A highly generic management interface that makes extending EDStorage equaly simple.
-- To be fast and safe.
+- Speed and safety.
 
 ## Basic Use
 The easiest way to get going with EDStorage is to take a look at the included example application. The XCode project file can be found in `example > storage.xcodeproj`. That said, if you are more inclined to read code than pick away at a sample project (you know who you are)... read on:
@@ -31,7 +31,7 @@ YourImplementation.m
 }
 ```
 
-## Implementing A Custom Category
+## Implementing A Storage Category
 `EDStorageManager` provides a single block method for interfacing with categories:
 
 ```objective-c
