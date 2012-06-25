@@ -28,6 +28,8 @@
 		C37C5CD615968ED50089F8C4 /* EDStorageOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = C37C5CD515968ED50089F8C4 /* EDStorageOperation.m */; };
 		C37C5CD91597D0120089F8C4 /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = C37C5CD71597D0110089F8C4 /* LICENSE.md */; };
 		C37C5CDA1597D0120089F8C4 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C37C5CD81597D0110089F8C4 /* README.md */; };
+		C37C5CE115980B570089F8C4 /* NSData+Storage.m in Sources */ = {isa = PBXBuildFile; fileRef = C37C5CE015980B570089F8C4 /* NSData+Storage.m */; };
+		C37C5CE215980B570089F8C4 /* NSData+Storage.m in Sources */ = {isa = PBXBuildFile; fileRef = C37C5CE015980B570089F8C4 /* NSData+Storage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,8 @@
 		C37C5CD515968ED50089F8C4 /* EDStorageOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EDStorageOperation.m; path = ../EDStorageOperation.m; sourceTree = "<group>"; };
 		C37C5CD71597D0110089F8C4 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE.md; path = ../LICENSE.md; sourceTree = "<group>"; };
 		C37C5CD81597D0110089F8C4 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		C37C5CDF15980B570089F8C4 /* NSData+Storage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+Storage.h"; path = "../NSData+Storage.h"; sourceTree = "<group>"; };
+		C37C5CE015980B570089F8C4 /* NSData+Storage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+Storage.m"; path = "../NSData+Storage.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,8 @@
 				C32B9C3D15966C2A00AD3365 /* EDStorageManager.m */,
 				C37C5CD415968ED50089F8C4 /* EDStorageOperation.h */,
 				C37C5CD515968ED50089F8C4 /* EDStorageOperation.m */,
+				C37C5CDF15980B570089F8C4 /* NSData+Storage.h */,
+				C37C5CE015980B570089F8C4 /* NSData+Storage.m */,
 				C32B9C381596692300AD3365 /* UIImage+Storage.h */,
 				C32B9C391596692300AD3365 /* UIImage+Storage.m */,
 				C37C5CD71597D0110089F8C4 /* LICENSE.md */,
@@ -304,6 +310,7 @@
 				C32B9C3A1596692300AD3365 /* UIImage+Storage.m in Sources */,
 				C32B9C3E15966C2A00AD3365 /* EDStorageManager.m in Sources */,
 				C37C5CD615968ED50089F8C4 /* EDStorageOperation.m in Sources */,
+				C37C5CE115980B570089F8C4 /* NSData+Storage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +321,7 @@
 				C32B9C23159659B900AD3365 /* storageTests.m in Sources */,
 				C32B9C3B1596692300AD3365 /* UIImage+Storage.m in Sources */,
 				C32B9C3F15966C2A00AD3365 /* EDStorageManager.m in Sources */,
+				C37C5CE215980B570089F8C4 /* NSData+Storage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

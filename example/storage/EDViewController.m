@@ -18,6 +18,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    //
+    
+    UIImage *image  = [UIImage imageNamed:@"nayn.png"];
+    NSData *data    = [[[NSData alloc] initWithData:UIImagePNGRepresentation(image)] autorelease];
+    [data persistToDocumentsWithExtension:@"png" success:^(NSURL *url, NSUInteger size) {
+        NSLog(@"Complete: %@ | %d", url, size);
+    } failure:^(NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -29,33 +39,31 @@
 
 - (IBAction)saveToCache:(id)sender
 {    
-    [sampleImage.image persistToCache:^(NSURL *url) {
-        NSLog(@"URL: %@", url);
+    [sampleImage.image persistToCache:^(NSURL *url, NSUInteger size) {
+        NSLog(@"Complete: %@ | %d", url, size);
         [self updateSavedImagePreview:[url path]];
-    } failure:^(NSException *exception) {
-        NSLog(@"Exception: %@", exception);
+    } failure:^(NSError *error) {
+        NSLog(@"Error: %@", error);
     }];
 }
 
 - (IBAction)saveToTemp:(id)sender
 {
-    [sampleImage.image persistToTemp:^(NSURL *url) {
-        NSLog(@"URL: %@", url);
+    [sampleImage.image persistToTemp:^(NSURL *url, NSUInteger size) {
+        NSLog(@"Complete: %@ | %d", url, size);
         [self updateSavedImagePreview:[url path]];
-    } failure:^(NSException *exception) {
-        NSLog(@"Exception: %@", exception);
+    } failure:^(NSError *error) {
+        NSLog(@"Error: %@", error);
     }];
-    
-    
 }
 
 - (IBAction)saveToDocuments:(id)sender
 {
-    [sampleImage.image persistToDocuments:^(NSURL *url) {
-        NSLog(@"URL: %@", url);
+    [sampleImage.image persistToDocuments:^(NSURL *url, NSUInteger size) {
+        NSLog(@"Complete: %@ | %d", url, size);
         [self updateSavedImagePreview:[url path]];
-    } failure:^(NSException *exception) {
-        NSLog(@"Exception: %@", exception);
+    } failure:^(NSError *error) {
+        NSLog(@"Error: %@", error);
     }];
 }
 
