@@ -9,12 +9,16 @@ In attempting to keep things [DRY](http://en.wikipedia.org/wiki/Don't_repeat_you
 - Speed and safety.
 
 ## Basic Use
-The easiest way to get going with EDStorage is to take a look at the included example application. The XCode project file can be found in `example > storage.xcodeproj`. That said, if you are more inclined to read code than pick away at a sample project (you know who you are)... read on:
+The easiest way to get going with EDStorage is to take a look at the included example application. The XCode project file can be found in `example > storage.xcodeproj`.
+
+In order to include EDStorage in your project, you'll want to add the entirety of the `storage` directory to your project minus the example project. EDStorage is built on top of foundation libraries and so no additional frameworks are needed. To bring in all of the included storage categories, simply:
 
 YourInterface.h
 ```objective-c
 #import <EDStorage.h>
 ```
+
+Each category has a slightly different interface depending on the needs of a specific class, but to use a common example, let's look at how to persist a UIImage to the application cache directory:
 
 YourImplementation.m
 ```objective-c
@@ -24,11 +28,28 @@ YourImplementation.m
     
     [image persistToCache:^(NSURL *url, NSUInteger size) {
         NSLog(@"FTW!: %@ | %d bytes", url, size);
-        [self updateSavedImagePreview:[url path]];
     } failure:^(NSError *error) {
         NSLog(@"UH OH: %@", error);
     }];
 }
+```
+
+Persisting to the temporary and documents application directories is equaly simple:
+
+```objective-c
+[image persistToTemp:^(NSURL *url, NSUInteger size) {
+    NSLog(@"FTW!: %@ | %d bytes", url, size);
+} failure:^(NSError *error) {
+    NSLog(@"UH OH: %@", error);
+}];
+```
+
+```objective-c
+[image persistToDocuments:^(NSURL *url, NSUInteger size) {
+    NSLog(@"FTW!: %@ | %d bytes", url, size);
+} failure:^(NSError *error) {
+    NSLog(@"UH OH: %@", error);
+}];
 ```
 
 ## Implementing A Storage Category
@@ -40,7 +61,7 @@ YourImplementation.m
 
 Categories simply abstract the process of calling this method on `EDStorageManager` by handling conversion of the class instance into a NSData object. For example, the storage category for UIImage simply passes self into NSData by calling `UIImageJPEGRepresentation()`. 
 
-**If you create a category that you find useful, please let me know! I would love to add it to the project.**
+**If you create a category that you find useful, please let me know! Pull requests are welcome.**
 
 ---
 
