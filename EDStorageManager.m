@@ -42,6 +42,17 @@
 
 #pragma mark - Public methods
 
+/**
+ * Generic persistence adapter for category extensions.
+ *
+ * @param {id} Data
+ * @param {NSString} File extension (e.g. @"jpg")
+ * @param {Location} File location (see interface for enum)
+ * @param {block} Success block
+ * @param {block} Failure block
+ *
+ * @return {void}
+ */
 - (void)persistData:(id)data withExtension:(NSString *)ext toLocation:(Location)location success:(void (^)(NSURL *, NSUInteger))success failure:(void (^)(NSError *))failure
 {       
     // Create URL
@@ -82,28 +93,28 @@
  */
 - (NSURL *)createAssetFileURLForLocation:(Location)location withExtension:(NSString *)extension
 {
-    NSArray *paths = nil;
-    NSString *directory = nil;
+    NSArray *paths          = nil;
+    NSString *directory     = nil;
     
     switch (location) {
         case kEDStorageDirectoryCache:
-            paths          = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-            directory      = [paths objectAtIndex:0];
+            paths           = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+            directory       = [paths objectAtIndex:0];
             break;
         case kEDStorageDirectoryTemp:
-            directory      = NSTemporaryDirectory();
+            directory       = NSTemporaryDirectory();
             break;
         case kEDStorageDirectoryDocuments:
-            paths          = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-            directory      = [paths objectAtIndex:0];
+            paths           = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+            directory       = [paths objectAtIndex:0];
             break;
         default:
             [NSException raise:@"Invalid location value" format:@"Location %@ is invalid", location];
             break;
     }
     
-    NSString *assetName    = [NSString stringWithFormat:@"%@.%@", [[NSProcessInfo processInfo] globallyUniqueString], extension];
-    NSString *assetPath    = [directory stringByAppendingPathComponent:assetName];
+    NSString *assetName     = [NSString stringWithFormat:@"%@.%@", [[NSProcessInfo processInfo] globallyUniqueString], extension];
+    NSString *assetPath     = [directory stringByAppendingPathComponent:assetName];
     
     return [NSURL fileURLWithPath:assetPath];
 }
