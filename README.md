@@ -1,11 +1,11 @@
 ## Storage
 #### Persist all the things! Wheee!
 
-In attempting to keep things [DRY](http://en.wikipedia.org/wiki/Don't_repeat_yourself), EDStorage was created to address the fair amount of boilerplate that often gets created to deal with writing data to disk within iOS applications in a performant manner. Disk I/O within iOS is syncronous and so much of this boilerplate is often written to improve performance by moving I/O to a background thread. EDStorage accomplishes this by transforming each write instance into a `NSOperation` which is managed by a single `NSOperationQueue`. All of this is done in the background while providing high-level methods to the user via categories. 
+In attempting to keep things [DRY](http://en.wikipedia.org/wiki/Don't_repeat_yourself), EDStorage was created to address the fair amount of boilerplate that often gets created to deal with writing data to disk within iOS applications in a performant manner. Disk I/O within iOS is synchronous and so much of this boilerplate is often written to improve performance by moving I/O to a background thread. EDStorage accomplishes this by transforming each write instance into a `NSOperation` which is managed by a single `NSOperationQueue`. All of this is done in the background while providing high-level methods to the user via categories. 
 
 **EDStorage strives to provide three things:**
 - An abstract interface based on categories that makes persisting data to disk simple.
-- A highly generic management interface that makes extending EDStorage equaly simple.
+- A highly generic management interface that makes extending EDStorage equally simple.
 - Speed and safety.
 
 ## Basic Use
