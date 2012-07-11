@@ -14,7 +14,7 @@ The easiest way to get going with EDStorage is to take a look at the included ex
 In order to include EDStorage in your project, you'll want to add the entirety of the `storage` directory to your project minus the example project. EDStorage is built on top of foundation libraries and so no additional frameworks are needed. To bring in all of the included storage categories, simply:
 
 ```objective-c
-#import <EDStorage.h>
+#import "EDStorage.h"
 ```
 
 Each category has a slightly different interface depending on the needs of a specific class, but to use a common example, let's look at how to persist a UIImage to the application cache directory:
