@@ -23,9 +23,9 @@ return _sharedObject; \
 
 typedef enum 
 {
-    kEDStorageDirectoryCache,
-    kEDStorageDirectoryTemp,
-    kEDStorageDirectoryDocuments
+    EDStorageDirectoryCache,
+    EDStorageDirectoryTemp,
+    EDStorageDirectoryDocuments
 } Location;
 
 @interface EDStorageManager : NSObject

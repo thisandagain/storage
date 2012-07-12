@@ -65,9 +65,9 @@ Categories simply abstract the process of calling this method on `EDStorageManag
 
 ## Locations
 ```objective-c
-kEDStorageDirectoryCache
-kEDStorageDirectoryTemp
-kEDStorageDirectoryDocuments
+EDStorageDirectoryCache
+EDStorageDirectoryTemp
+EDStorageDirectoryDocuments
 ```
 
 ## NSData+Storage Methods

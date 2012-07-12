@@ -97,14 +97,14 @@
     NSString *directory     = nil;
     
     switch (location) {
-        case kEDStorageDirectoryCache:
+        case EDStorageDirectoryCache:
             paths           = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
             directory       = [paths objectAtIndex:0];
             break;
-        case kEDStorageDirectoryTemp:
+        case EDStorageDirectoryTemp:
             directory       = NSTemporaryDirectory();
             break;
-        case kEDStorageDirectoryDocuments:
+        case EDStorageDirectoryDocuments:
             paths           = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
             directory       = [paths objectAtIndex:0];
             break;
