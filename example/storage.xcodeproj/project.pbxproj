@@ -21,15 +21,12 @@
 		C32B9C20159659B900AD3365 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C32B9C1E159659B900AD3365 /* InfoPlist.strings */; };
 		C32B9C23159659B900AD3365 /* storageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C32B9C22159659B900AD3365 /* storageTests.m */; };
 		C32B9C3715965E2C00AD3365 /* nayn.png in Resources */ = {isa = PBXBuildFile; fileRef = C32B9C3615965E2C00AD3365 /* nayn.png */; };
-		C32B9C3A1596692300AD3365 /* UIImage+Storage.m in Sources */ = {isa = PBXBuildFile; fileRef = C32B9C391596692300AD3365 /* UIImage+Storage.m */; };
-		C32B9C3B1596692300AD3365 /* UIImage+Storage.m in Sources */ = {isa = PBXBuildFile; fileRef = C32B9C391596692300AD3365 /* UIImage+Storage.m */; };
-		C32B9C3E15966C2A00AD3365 /* EDStorageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C32B9C3D15966C2A00AD3365 /* EDStorageManager.m */; };
-		C32B9C3F15966C2A00AD3365 /* EDStorageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C32B9C3D15966C2A00AD3365 /* EDStorageManager.m */; };
-		C37C5CD615968ED50089F8C4 /* EDStorageOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = C37C5CD515968ED50089F8C4 /* EDStorageOperation.m */; };
 		C37C5CD91597D0120089F8C4 /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = C37C5CD71597D0110089F8C4 /* LICENSE.md */; };
 		C37C5CDA1597D0120089F8C4 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C37C5CD81597D0110089F8C4 /* README.md */; };
-		C37C5CE115980B570089F8C4 /* NSData+Storage.m in Sources */ = {isa = PBXBuildFile; fileRef = C37C5CE015980B570089F8C4 /* NSData+Storage.m */; };
-		C37C5CE215980B570089F8C4 /* NSData+Storage.m in Sources */ = {isa = PBXBuildFile; fileRef = C37C5CE015980B570089F8C4 /* NSData+Storage.m */; };
+		DE49BE9B15B8BAA6005BB13A /* EDStorageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DE49BE9415B8BAA6005BB13A /* EDStorageManager.m */; };
+		DE49BE9C15B8BAA6005BB13A /* EDStorageOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = DE49BE9615B8BAA6005BB13A /* EDStorageOperation.m */; };
+		DE49BE9D15B8BAA6005BB13A /* NSData+Storage.m in Sources */ = {isa = PBXBuildFile; fileRef = DE49BE9815B8BAA6005BB13A /* NSData+Storage.m */; };
+		DE49BE9E15B8BAA6005BB13A /* UIImage+Storage.m in Sources */ = {isa = PBXBuildFile; fileRef = DE49BE9A15B8BAA6005BB13A /* UIImage+Storage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,18 +59,18 @@
 		C32B9C1F159659B900AD3365 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C32B9C21159659B900AD3365 /* storageTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = storageTests.h; sourceTree = "<group>"; };
 		C32B9C22159659B900AD3365 /* storageTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = storageTests.m; sourceTree = "<group>"; };
-		C32B9C3015965A7A00AD3365 /* EDStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EDStorage.h; path = ../EDStorage.h; sourceTree = "<group>"; };
 		C32B9C3615965E2C00AD3365 /* nayn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nayn.png; path = Images/nayn.png; sourceTree = "<group>"; };
-		C32B9C381596692300AD3365 /* UIImage+Storage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Storage.h"; path = "../UIImage+Storage.h"; sourceTree = "<group>"; };
-		C32B9C391596692300AD3365 /* UIImage+Storage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Storage.m"; path = "../UIImage+Storage.m"; sourceTree = "<group>"; };
-		C32B9C3C15966C2A00AD3365 /* EDStorageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EDStorageManager.h; path = ../EDStorageManager.h; sourceTree = "<group>"; };
-		C32B9C3D15966C2A00AD3365 /* EDStorageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EDStorageManager.m; path = ../EDStorageManager.m; sourceTree = "<group>"; };
-		C37C5CD415968ED50089F8C4 /* EDStorageOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EDStorageOperation.h; path = ../EDStorageOperation.h; sourceTree = "<group>"; };
-		C37C5CD515968ED50089F8C4 /* EDStorageOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EDStorageOperation.m; path = ../EDStorageOperation.m; sourceTree = "<group>"; };
 		C37C5CD71597D0110089F8C4 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE.md; path = ../LICENSE.md; sourceTree = "<group>"; };
 		C37C5CD81597D0110089F8C4 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		C37C5CDF15980B570089F8C4 /* NSData+Storage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+Storage.h"; path = "../NSData+Storage.h"; sourceTree = "<group>"; };
-		C37C5CE015980B570089F8C4 /* NSData+Storage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+Storage.m"; path = "../NSData+Storage.m"; sourceTree = "<group>"; };
+		DE49BE9215B8BAA6005BB13A /* EDStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EDStorage.h; path = ../EDStorage/EDStorage.h; sourceTree = "<group>"; };
+		DE49BE9315B8BAA6005BB13A /* EDStorageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EDStorageManager.h; path = ../EDStorage/EDStorageManager.h; sourceTree = "<group>"; };
+		DE49BE9415B8BAA6005BB13A /* EDStorageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EDStorageManager.m; path = ../EDStorage/EDStorageManager.m; sourceTree = "<group>"; };
+		DE49BE9515B8BAA6005BB13A /* EDStorageOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EDStorageOperation.h; path = ../EDStorage/EDStorageOperation.h; sourceTree = "<group>"; };
+		DE49BE9615B8BAA6005BB13A /* EDStorageOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EDStorageOperation.m; path = ../EDStorage/EDStorageOperation.m; sourceTree = "<group>"; };
+		DE49BE9715B8BAA6005BB13A /* NSData+Storage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+Storage.h"; path = "../EDStorage/NSData+Storage.h"; sourceTree = "<group>"; };
+		DE49BE9815B8BAA6005BB13A /* NSData+Storage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+Storage.m"; path = "../EDStorage/NSData+Storage.m"; sourceTree = "<group>"; };
+		DE49BE9915B8BAA6005BB13A /* UIImage+Storage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Storage.h"; path = "../EDStorage/UIImage+Storage.h"; sourceTree = "<group>"; };
+		DE49BE9A15B8BAA6005BB13A /* UIImage+Storage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Storage.m"; path = "../EDStorage/UIImage+Storage.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,15 +100,15 @@
 		C32B9BE8159659B800AD3365 = {
 			isa = PBXGroup;
 			children = (
-				C32B9C3015965A7A00AD3365 /* EDStorage.h */,
-				C32B9C3C15966C2A00AD3365 /* EDStorageManager.h */,
-				C32B9C3D15966C2A00AD3365 /* EDStorageManager.m */,
-				C37C5CD415968ED50089F8C4 /* EDStorageOperation.h */,
-				C37C5CD515968ED50089F8C4 /* EDStorageOperation.m */,
-				C37C5CDF15980B570089F8C4 /* NSData+Storage.h */,
-				C37C5CE015980B570089F8C4 /* NSData+Storage.m */,
-				C32B9C381596692300AD3365 /* UIImage+Storage.h */,
-				C32B9C391596692300AD3365 /* UIImage+Storage.m */,
+				DE49BE9215B8BAA6005BB13A /* EDStorage.h */,
+				DE49BE9315B8BAA6005BB13A /* EDStorageManager.h */,
+				DE49BE9415B8BAA6005BB13A /* EDStorageManager.m */,
+				DE49BE9515B8BAA6005BB13A /* EDStorageOperation.h */,
+				DE49BE9615B8BAA6005BB13A /* EDStorageOperation.m */,
+				DE49BE9715B8BAA6005BB13A /* NSData+Storage.h */,
+				DE49BE9815B8BAA6005BB13A /* NSData+Storage.m */,
+				DE49BE9915B8BAA6005BB13A /* UIImage+Storage.h */,
+				DE49BE9A15B8BAA6005BB13A /* UIImage+Storage.m */,
 				C37C5CD71597D0110089F8C4 /* LICENSE.md */,
 				C37C5CD81597D0110089F8C4 /* README.md */,
 				C32B9BFD159659B900AD3365 /* storage */,
@@ -307,10 +304,10 @@
 				C32B9C04159659B900AD3365 /* main.m in Sources */,
 				C32B9C08159659B900AD3365 /* EDAppDelegate.m in Sources */,
 				C32B9C0B159659B900AD3365 /* EDViewController.m in Sources */,
-				C32B9C3A1596692300AD3365 /* UIImage+Storage.m in Sources */,
-				C32B9C3E15966C2A00AD3365 /* EDStorageManager.m in Sources */,
-				C37C5CD615968ED50089F8C4 /* EDStorageOperation.m in Sources */,
-				C37C5CE115980B570089F8C4 /* NSData+Storage.m in Sources */,
+				DE49BE9B15B8BAA6005BB13A /* EDStorageManager.m in Sources */,
+				DE49BE9C15B8BAA6005BB13A /* EDStorageOperation.m in Sources */,
+				DE49BE9D15B8BAA6005BB13A /* NSData+Storage.m in Sources */,
+				DE49BE9E15B8BAA6005BB13A /* UIImage+Storage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,9 +316,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C32B9C23159659B900AD3365 /* storageTests.m in Sources */,
-				C32B9C3B1596692300AD3365 /* UIImage+Storage.m in Sources */,
-				C32B9C3F15966C2A00AD3365 /* EDStorageManager.m in Sources */,
-				C37C5CE215980B570089F8C4 /* NSData+Storage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
