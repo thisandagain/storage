@@ -109,7 +109,7 @@
             directory       = [paths objectAtIndex:0];
             break;
         default:
-            [NSException raise:@"Invalid location value" format:@"Location %d is invalid", location];
+            [NSException raise:@"Invalid location value" format:@"Location %u is invalid", location];
             break;
     }
     
