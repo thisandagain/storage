@@ -30,7 +30,7 @@ typedef enum
 
 @interface EDStorageManager : NSObject
 {
-    @private NSOperationQueue *queue;
+    @private NSOperationQueue *_queue;
 }
 
 + (EDStorageManager *)sharedInstance;
