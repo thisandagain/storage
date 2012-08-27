@@ -11,7 +11,7 @@ In attempting to keep things [DRY](http://en.wikipedia.org/wiki/Don't_repeat_you
 ## Basic Use
 The easiest way to get going with EDStorage is to take a look at the included example application. The XCode project file can be found in `example > storage.xcodeproj`.
 
-In order to include EDStorage in your project, you'll want to add the entirety of the `storage` directory to your project minus the example project. EDStorage is built on top of foundation libraries and so no additional frameworks are needed. To bring in all of the included storage categories, simply:
+In order to include EDStorage in your project, you'll want to add the entirety of the `EDStorage` directory to your project. EDStorage is built on top of foundation libraries and so no additional frameworks are needed. To bring in all of the included storage categories, simply:
 
 ```objective-c
 #import "EDStorage.h"
