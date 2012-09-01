@@ -403,6 +403,8 @@
 		C32B9C27159659B900AD3365 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "storage/storage-Prefix.pch";
 				INFOPLIST_FILE = "storage/storage-Info.plist";
@@ -414,6 +416,8 @@
 		C32B9C28159659B900AD3365 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "storage/storage-Prefix.pch";
 				INFOPLIST_FILE = "storage/storage-Info.plist";

@@ -18,8 +18,6 @@
 
 @implementation EDStorageManager
 
-@synthesize queue = _queue;
-
 #pragma mark - Init
 
 + (EDStorageManager *)sharedInstance
@@ -69,7 +67,7 @@
             {
                 failure(operation.error);
             } else {
-                failure([NSError errorWithDomain:@"com.ed.storage" code:100 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:operation, @"operation", url, @"url", nil]]);
+                failure([NSError errorWithDomain:@"com.ed.storage" code:100 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:url, @"url", nil]]);
             }
         }
         
@@ -78,7 +76,6 @@
         [operation setCompletionBlock:nil];     // Force dealloc
     }];
     [self.queue addOperation:operation];
-    [operation release];
 }
 
 #pragma mark - Private methods
@@ -121,15 +118,9 @@
 
 #pragma mark - Dealloc
 
-- (void)releaseObjects
-{
-    [_queue release]; _queue = nil;
-}
-
 - (void)dealloc
 {
-    [self releaseObjects];
-    [super dealloc];
+    _queue = nil;
 }
 
 @end

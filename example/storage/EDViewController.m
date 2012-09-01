@@ -10,9 +10,6 @@
 
 @implementation EDViewController
 
-@synthesize sampleImage;
-@synthesize savedImage;
-
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
@@ -22,7 +19,7 @@
     //
     
     UIImage *image  = [UIImage imageNamed:@"nayn.png"];
-    NSData *data    = [[[NSData alloc] initWithData:UIImagePNGRepresentation(image)] autorelease];
+    NSData *data    = [[NSData alloc] initWithData:UIImagePNGRepresentation(image)];
     [data persistToDocumentsWithExtension:@"png" success:^(NSURL *url, NSUInteger size) {
         NSLog(@"Complete: %@ | %d", url, size);
     } failure:^(NSError *error) {
@@ -39,7 +36,7 @@
 
 - (IBAction)saveToCache:(id)sender
 {    
-    [sampleImage.image persistToCache:^(NSURL *url, NSUInteger size) {
+    [self.sampleImage.image persistToCache:^(NSURL *url, NSUInteger size) {
         NSLog(@"Complete: %@ | %d", url, size);
         [self updateSavedImagePreview:[url path]];
     } failure:^(NSError *error) {
@@ -49,7 +46,7 @@
 
 - (IBAction)saveToTemp:(id)sender
 {
-    [sampleImage.image persistToTemp:^(NSURL *url, NSUInteger size) {
+    [self.sampleImage.image persistToTemp:^(NSURL *url, NSUInteger size) {
         NSLog(@"Complete: %@ | %d", url, size);
         [self updateSavedImagePreview:[url path]];
     } failure:^(NSError *error) {
@@ -59,7 +56,7 @@
 
 - (IBAction)saveToDocuments:(id)sender
 {
-    [sampleImage.image persistToDocuments:^(NSURL *url, NSUInteger size) {
+    [self.sampleImage.image persistToDocuments:^(NSURL *url, NSUInteger size) {
         NSLog(@"Complete: %@ | %d", url, size);
         [self updateSavedImagePreview:[url path]];
     } failure:^(NSError *error) {
@@ -76,7 +73,7 @@
         UIImage *image = [UIImage imageWithContentsOfFile:relativePath];
         
         dispatch_sync(dispatch_get_main_queue(), ^{
-            savedImage.image = image;
+            self.savedImage.image = image;
         });
         
     });
@@ -86,14 +83,8 @@
 
 - (void)releaseObjects
 {
-    [sampleImage release]; sampleImage = nil;
-    [savedImage release]; savedImage = nil;
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    [self releaseObjects];
+    _sampleImage = nil;
+    _savedImage = nil;
 }
 
 - (void)viewDidUnload
@@ -105,7 +96,6 @@
 - (void)dealloc
 {
     [self releaseObjects];
-    [super dealloc];
 }
 
 @end

@@ -46,12 +46,4 @@
     return UIImageJPEGRepresentation(self, 0.8f);
 }
 
-#pragma mark - Dealloc
-
-- (void)dealloc
-{
-    self = nil;
-    [super dealloc];
-}
-
 @end
