@@ -50,6 +50,7 @@
 
 - (void)dealloc
 {
+    self = nil;
     [super dealloc];
 }
 
