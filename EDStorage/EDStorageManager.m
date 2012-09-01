@@ -58,6 +58,10 @@
     
     // Perform operation
     EDStorageOperation *operation = [[EDStorageOperation alloc] initWithData:data forURL:url];
+    
+    // Completion block is manually nilled out to break the retain cycle 
+    #pragma clang diagnostic push
+    #pragma clang diagnostic ignored "-Warc-retain-cycles"
     [operation setCompletionBlock:^{
         if (operation.complete)
         {
@@ -75,6 +79,8 @@
         
         [operation setCompletionBlock:nil];     // Force dealloc
     }];
+    #pragma clang diagnostic pop
+    
     [self.queue addOperation:operation];
 }
 
