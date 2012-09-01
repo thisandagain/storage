@@ -6,28 +6,9 @@
 //  Copyright (c) 2012 DIY, Co. All rights reserved.
 //
 
-#import <objc/runtime.h>
 #import "UIImage+Storage.h"
 
-NSString * const kEDJpgQualityKey = @"kEDJpgQualityKey";
-
 @implementation UIImage (Storage)
-@dynamic jpgQuality;
-
-#pragma mark - Associative reference
-
-- (void)setJpgQuality:(NSNumber *)jpgQuality
-{
-    objc_setAssociatedObject(self, kEDJpgQualityKey, jpgQuality, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-- (NSNumber *)jpgQuality
-{
-    NSNumber *a = objc_getAssociatedObject(self, kEDJpgQualityKey);
-    if (a == nil) a = [NSNumber numberWithFloat:1.0f];
-    
-    return a;
-}
 
 #pragma mark - Public methods
 
@@ -62,7 +43,7 @@ NSString * const kEDJpgQualityKey = @"kEDJpgQualityKey";
 
 - (NSData *)jpgRepresentation
 {
-    return UIImageJPEGRepresentation(self, [[self jpgQuality] floatValue]);
+    return UIImageJPEGRepresentation(self, 0.8f);
 }
 
 #pragma mark - Dealloc

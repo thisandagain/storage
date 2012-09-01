@@ -15,6 +15,4 @@
 - (void)persistToTemp:(void (^)(NSURL *url, NSUInteger size))success failure:(void (^)(NSError *error))failure;
 - (void)persistToDocuments:(void (^)(NSURL *url, NSUInteger size))success failure:(void (^)(NSError *error))failure;
 
-@property (nonatomic, retain) NSNumber *jpgQuality;
-
 @end
