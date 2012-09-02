@@ -47,16 +47,12 @@
 
 <p>In order to include EDStorage in your project, you'll want to add the entirety of the <code>EDStorage</code> directory to your project. EDStorage is built on top of foundation libraries and so no additional frameworks are needed. To bring in all of the included storage categories, simply:</p>
 
-<div class="highlight">
-<pre><span class="cp">#import "EDStorage.h"</span>
-</pre>
-</div>
-
+<div class="highlight"><pre><span class="cp">#import "EDStorage.h"</span>
+</pre></div>
 
 <p>Each category has a slightly different interface depending on the needs of a specific class, but to use a common example, let's look at how to persist a UIImage to the application cache directory:</p>
 
-<div class="highlight">
-<pre><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">doSomething</span>
+<div class="highlight"><pre><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">doSomething</span>
 <span class="p">{</span>
     <span class="n">UIImage</span> <span class="o">*</span><span class="n">image</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIImage</span> <span class="nl">imageNamed:</span><span class="s">@"keyboardCat.png"</span><span class="p">];</span>
 
@@ -66,41 +62,30 @@
         <span class="n">NSLog</span><span class="p">(</span><span class="s">@"UH OH: %@"</span><span class="p">,</span> <span class="n">error</span><span class="p">);</span>
     <span class="p">}];</span>
 <span class="p">}</span>
-</pre>
-</div>
-
+</pre></div>
 
 <p>Persisting to the temporary and documents application directories is equaly simple:</p>
 
-<div class="highlight">
-<pre><span class="p">[</span><span class="n">image</span> <span class="nl">persistToTemp:</span><span class="o">^</span><span class="p">(</span><span class="n">NSURL</span> <span class="o">*</span><span class="n">url</span><span class="p">,</span> <span class="n">NSUInteger</span> <span class="n">size</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><span class="p">[</span><span class="n">image</span> <span class="nl">persistToTemp:</span><span class="o">^</span><span class="p">(</span><span class="n">NSURL</span> <span class="o">*</span><span class="n">url</span><span class="p">,</span> <span class="n">NSUInteger</span> <span class="n">size</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">NSLog</span><span class="p">(</span><span class="s">@"FTW!: %@ | %d bytes"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span>
 <span class="p">}</span> <span class="nl">failure:</span><span class="o">^</span><span class="p">(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">NSLog</span><span class="p">(</span><span class="s">@"UH OH: %@"</span><span class="p">,</span> <span class="n">error</span><span class="p">);</span>
 <span class="p">}];</span>
-</pre>
-</div>
+</pre></div>
 
-
-<div class="highlight">
-<pre><span class="p">[</span><span class="n">image</span> <span class="nl">persistToDocuments:</span><span class="o">^</span><span class="p">(</span><span class="n">NSURL</span> <span class="o">*</span><span class="n">url</span><span class="p">,</span> <span class="n">NSUInteger</span> <span class="n">size</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><span class="p">[</span><span class="n">image</span> <span class="nl">persistToDocuments:</span><span class="o">^</span><span class="p">(</span><span class="n">NSURL</span> <span class="o">*</span><span class="n">url</span><span class="p">,</span> <span class="n">NSUInteger</span> <span class="n">size</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">NSLog</span><span class="p">(</span><span class="s">@"FTW!: %@ | %d bytes"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span>
 <span class="p">}</span> <span class="nl">failure:</span><span class="o">^</span><span class="p">(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">NSLog</span><span class="p">(</span><span class="s">@"UH OH: %@"</span><span class="p">,</span> <span class="n">error</span><span class="p">);</span>
 <span class="p">}];</span>
-</pre>
-</div>
-
+</pre></div>
 
 <h2>Implementing A Storage Category</h2>
 
 <p><code>EDStorageManager</code> provides a single block method for interfacing with categories:</p>
 
-<div class="highlight">
-<pre><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">persistData:</span><span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nv">data</span> <span class="nf">withExtension:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">ext</span> <span class="nf">toLocation:</span><span class="p">(</span><span class="n">Location</span><span class="p">)</span><span class="nv">location</span> <span class="nf">success:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSURL</span> <span class="o">*</span><span class="n">url</span><span class="p">,</span> <span class="n">NSUInteger</span> <span class="n">size</span><span class="p">))</span><span class="nv">success</span> <span class="nf">failure:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span>
-</pre>
-</div>
-
+<div class="highlight"><pre><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">persistData:</span><span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nv">data</span> <span class="nf">withExtension:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">ext</span> <span class="nf">toLocation:</span><span class="p">(</span><span class="n">Location</span><span class="p">)</span><span class="nv">location</span> <span class="nf">success:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSURL</span> <span class="o">*</span><span class="n">url</span><span class="p">,</span> <span class="n">NSUInteger</span> <span class="n">size</span><span class="p">))</span><span class="nv">success</span> <span class="nf">failure:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span>
+</pre></div>
 
 <p>Categories simply abstract the process of calling this method on <code>EDStorageManager</code> by handling conversion of the class instance into a NSData object. For example, the storage category for UIImage simply passes self into NSData by calling <code>UIImageJPEGRepresentation()</code>. </p>
 
@@ -108,33 +93,24 @@
 
 <hr><h2>Locations</h2>
 
-<div class="highlight">
-<pre><span class="n">EDStorageDirectoryCache</span>
+<div class="highlight"><pre><span class="n">EDStorageDirectoryCache</span>
 <span class="n">EDStorageDirectoryTemp</span>
 <span class="n">EDStorageDirectoryDocuments</span>
-</pre>
-</div>
-
+</pre></div>
 
 <h2>NSData+Storage Methods</h2>
 
-<div class="highlight">
-<pre><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">persistToCacheWithExtension:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">extension</span> <span class="nf">success:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSURL</span> <span class="o">*</span><span class="n">url</span><span class="p">,</span> <span class="n">NSUInteger</span> <span class="n">size</span><span class="p">))</span><span class="nv">success</span> <span class="nf">failure:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span>
+<div class="highlight"><pre><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">persistToCacheWithExtension:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">extension</span> <span class="nf">success:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSURL</span> <span class="o">*</span><span class="n">url</span><span class="p">,</span> <span class="n">NSUInteger</span> <span class="n">size</span><span class="p">))</span><span class="nv">success</span> <span class="nf">failure:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span>
 <span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">persistToTempWithExtension:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">extension</span> <span class="nf">success:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSURL</span> <span class="o">*</span><span class="n">url</span><span class="p">,</span> <span class="n">NSUInteger</span> <span class="n">size</span><span class="p">))</span><span class="nv">success</span> <span class="nf">failure:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span>
 <span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">persistToDocumentsWithExtension:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">extension</span> <span class="nf">success:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSURL</span> <span class="o">*</span><span class="n">url</span><span class="p">,</span> <span class="n">NSUInteger</span> <span class="n">size</span><span class="p">))</span><span class="nv">success</span> <span class="nf">failure:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span>
-</pre>
-</div>
-
+</pre></div>
 
 <h2>UIImage+Storage Methods</h2>
 
-<div class="highlight">
-<pre><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">persistToCache:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSURL</span> <span class="o">*</span><span class="n">url</span><span class="p">,</span> <span class="n">NSUInteger</span> <span class="n">size</span><span class="p">))</span><span class="nv">success</span> <span class="nf">failure:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span>
+<div class="highlight"><pre><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">persistToCache:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSURL</span> <span class="o">*</span><span class="n">url</span><span class="p">,</span> <span class="n">NSUInteger</span> <span class="n">size</span><span class="p">))</span><span class="nv">success</span> <span class="nf">failure:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span>
 <span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">persistToTemp:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSURL</span> <span class="o">*</span><span class="n">url</span><span class="p">,</span> <span class="n">NSUInteger</span> <span class="n">size</span><span class="p">))</span><span class="nv">success</span> <span class="nf">failure:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span>
 <span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">persistToDocuments:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSURL</span> <span class="o">*</span><span class="n">url</span><span class="p">,</span> <span class="n">NSUInteger</span> <span class="n">size</span><span class="p">))</span><span class="nv">success</span> <span class="nf">failure:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span>
-</pre>
-</div>
-
+</pre></div>
 
 <hr><h2>iOS Support</h2>
 
@@ -142,7 +118,7 @@
 
 <h2>ARC</h2>
 
-<p>If you are including EDStorage in a project that uses <a href="http://developer.apple.com/library/ios/#releasenotes/ObjectiveC/RN-TransitioningToARC/Introduction/Introduction.html">Automatic Reference Counting (ARC)</a>, you will need to set the <code>-fno-objc-arc</code> compiler flag on all of the EDStorage source files. To do this in Xcode, go to your active target and select the "Build Phases" tab. Now select all EDStorage source files, press Enter, insert <code>-fno-objc-arc</code> and then "Done" to disable ARC for EDStorage.</p>
+<p>EDStorage as of v0.2.0 is built using ARC. If you are including EDStorage in a project that <strong>does not</strong> use <a href="http://developer.apple.com/library/ios/#releasenotes/ObjectiveC/RN-TransitioningToARC/Introduction/Introduction.html">Automatic Reference Counting (ARC)</a>, you will need to set the <code>-fobjc-arc</code> compiler flag on all of the EDStorage source files. To do this in Xcode, go to your active target and select the "Build Phases" tab. Now select all EDStorage source files, press Enter, insert <code>-fobjc-arc</code> and then "Done" to enable ARC for EDStorage.</p>
       </section>
     </div>
 
