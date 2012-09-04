@@ -12,29 +12,17 @@
 
 - (void)persistToCacheWithExtension:(NSString *)extension success:(void (^)(NSURL *, NSUInteger))success failure:(void (^)(NSError *))failure
 {
-    [[EDStorageManager sharedInstance] persistData:self withExtension:extension toLocation:EDStorageDirectoryCache success:^(NSURL *url, NSUInteger size) {
-        success(url, size);
-    } failure:^(NSError *error) {
-        failure(error);
-    }];
+    [[EDStorageManager sharedInstance] persistData:self withExtension:extension toLocation:EDStorageDirectoryCache success:(void *)([success copy]) failure:(void *)([failure copy])]; 
 }
 
 - (void)persistToTempWithExtension:(NSString *)extension success:(void (^)(NSURL *, NSUInteger))success failure:(void (^)(NSError *))failure
 {
-    [[EDStorageManager sharedInstance] persistData:self withExtension:extension toLocation:EDStorageDirectoryTemp success:^(NSURL *url, NSUInteger size) {
-        success(url, size);
-    } failure:^(NSError *error) {
-        failure(error);
-    }];
+    [[EDStorageManager sharedInstance] persistData:self withExtension:extension toLocation:EDStorageDirectoryTemp success:(void *)([success copy]) failure:(void *)([failure copy])];
 }
 
 - (void)persistToDocumentsWithExtension:(NSString *)extension success:(void (^)(NSURL *, NSUInteger))success failure:(void (^)(NSError *))failure
 {
-    [[EDStorageManager sharedInstance] persistData:self withExtension:extension toLocation:EDStorageDirectoryDocuments success:^(NSURL *url, NSUInteger size) {
-        success(url, size);
-    } failure:^(NSError *error) {
-        failure(error);
-    }];
+    [[EDStorageManager sharedInstance] persistData:self withExtension:extension toLocation:EDStorageDirectoryDocuments success:(void *)([success copy]) failure:(void *)([failure copy])];
 }
 
 @end

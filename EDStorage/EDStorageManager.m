@@ -51,8 +51,12 @@
  *
  * @return {void}
  */
-- (void)persistData:(id)data withExtension:(NSString *)ext toLocation:(Location)location success:(void (^)(NSURL *, NSUInteger))success failure:(void (^)(NSError *))failure
-{       
+- (void)persistData:(id)data withExtension:(NSString *)ext toLocation:(Location)location success:(void *)success failure:(void *)failure
+{
+    // Transpose blocks
+    void (^successBlock)(NSURL *url, NSUInteger size) = (__bridge void (^)(NSURL *, NSUInteger))(success);
+    void (^failureBlock)(NSError *error) = (__bridge void (^)(NSError *))(failure);
+    
     // Create URL
     NSURL *url = [self createAssetFileURLForLocation:location withExtension:ext];
     
@@ -65,13 +69,13 @@
     [operation setCompletionBlock:^{
         if (operation.complete)
         {
-            success(operation.target, operation.size);
+            successBlock(operation.target, operation.size);
         } else {
             if (operation.error != NULL)
             {
-                failure(operation.error);
+                failureBlock(operation.error);
             } else {
-                failure([NSError errorWithDomain:@"com.ed.storage" code:100 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:url, @"url", nil]]);
+                failureBlock([NSError errorWithDomain:@"com.ed.storage" code:100 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:url, @"url", nil]]);
             }
         }
         

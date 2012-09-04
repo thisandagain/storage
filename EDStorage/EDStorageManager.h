@@ -34,6 +34,6 @@ typedef enum
 }
 
 + (EDStorageManager *)sharedInstance;
-- (void)persistData:(id)data withExtension:(NSString *)ext toLocation:(Location)location success:(void (^)(NSURL *url, NSUInteger size))success failure:(void (^)(NSError *error))failure;
+- (void)persistData:(id)data withExtension:(NSString *)ext toLocation:(Location)location success:(void *)success failure:(void *)failure;
 
 @end

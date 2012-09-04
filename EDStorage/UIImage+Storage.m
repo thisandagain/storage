@@ -14,29 +14,17 @@
 
 - (void)persistToCache:(void (^)(NSURL *, NSUInteger))success failure:(void (^)(NSError *))failure
 {
-    [[EDStorageManager sharedInstance] persistData:[self jpgRepresentation] withExtension:@"jpg" toLocation:EDStorageDirectoryCache success:^(NSURL *url, NSUInteger size) {
-        success(url, size);
-    } failure:^(NSError *error) {
-        failure(error);
-    }];
+    [[EDStorageManager sharedInstance] persistData:[self jpgRepresentation] withExtension:@"jpg" toLocation:EDStorageDirectoryTemp success:(void *)([success copy]) failure:(void *)([failure copy])];
 }
 
 - (void)persistToTemp:(void (^)(NSURL *, NSUInteger))success failure:(void (^)(NSError *))failure
 {
-    [[EDStorageManager sharedInstance] persistData:[self jpgRepresentation] withExtension:@"jpg" toLocation:EDStorageDirectoryTemp success:^(NSURL *url, NSUInteger size) {
-        success(url, size);
-    } failure:^(NSError *error) {
-        failure(error);
-    }];
+    [[EDStorageManager sharedInstance] persistData:[self jpgRepresentation] withExtension:@"jpg" toLocation:EDStorageDirectoryTemp success:(void *)([success copy]) failure:(void *)([failure copy])];
 }
 
 - (void)persistToDocuments:(void (^)(NSURL *, NSUInteger))success failure:(void (^)(NSError *))failure
 {
-    [[EDStorageManager sharedInstance] persistData:[self jpgRepresentation] withExtension:@"jpg" toLocation:EDStorageDirectoryDocuments success:^(NSURL *url, NSUInteger size) {
-        success(url, size);
-    } failure:^(NSError *error) {
-        failure(error);
-    }];
+    [[EDStorageManager sharedInstance] persistData:[self jpgRepresentation] withExtension:@"jpg" toLocation:EDStorageDirectoryDocuments success:(void *)([success copy]) failure:(void *)([failure copy])];
 }
 
 #pragma mark - Private methods
