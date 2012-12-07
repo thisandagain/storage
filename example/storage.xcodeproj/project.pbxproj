@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C30D48D91670314800C45DC8 /* NSDictionary+Storage.m in Sources */ = {isa = PBXBuildFile; fileRef = C30D48D81670314800C45DC8 /* NSDictionary+Storage.m */; };
+		C30D48DA1670314800C45DC8 /* NSDictionary+Storage.m in Sources */ = {isa = PBXBuildFile; fileRef = C30D48D81670314800C45DC8 /* NSDictionary+Storage.m */; };
 		C32B9BF8159659B900AD3365 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C32B9BF7159659B900AD3365 /* UIKit.framework */; };
 		C32B9BFA159659B900AD3365 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C32B9BF9159659B900AD3365 /* Foundation.framework */; };
 		C32B9BFC159659B900AD3365 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C32B9BFB159659B900AD3365 /* CoreGraphics.framework */; };
@@ -40,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C30D48D71670314800C45DC8 /* NSDictionary+Storage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+Storage.h"; path = "../EDStorage/NSDictionary+Storage.h"; sourceTree = "<group>"; };
+		C30D48D81670314800C45DC8 /* NSDictionary+Storage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+Storage.m"; path = "../EDStorage/NSDictionary+Storage.m"; sourceTree = "<group>"; };
 		C32B9BF3159659B900AD3365 /* storage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = storage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C32B9BF7159659B900AD3365 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C32B9BF9159659B900AD3365 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -109,6 +113,8 @@
 				DE49BE9815B8BAA6005BB13A /* NSData+Storage.m */,
 				DE49BE9915B8BAA6005BB13A /* UIImage+Storage.h */,
 				DE49BE9A15B8BAA6005BB13A /* UIImage+Storage.m */,
+				C30D48D71670314800C45DC8 /* NSDictionary+Storage.h */,
+				C30D48D81670314800C45DC8 /* NSDictionary+Storage.m */,
 				C37C5CD71597D0110089F8C4 /* LICENSE.md */,
 				C37C5CD81597D0110089F8C4 /* README.md */,
 				C32B9BFD159659B900AD3365 /* storage */,
@@ -308,6 +314,7 @@
 				DE49BE9C15B8BAA6005BB13A /* EDStorageOperation.m in Sources */,
 				DE49BE9D15B8BAA6005BB13A /* NSData+Storage.m in Sources */,
 				DE49BE9E15B8BAA6005BB13A /* UIImage+Storage.m in Sources */,
+				C30D48D91670314800C45DC8 /* NSDictionary+Storage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +323,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C32B9C23159659B900AD3365 /* storageTests.m in Sources */,
+				C30D48DA1670314800C45DC8 /* NSDictionary+Storage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

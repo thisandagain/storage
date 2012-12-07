@@ -8,3 +8,4 @@
 
 #import "NSData+Storage.h"
 #import "UIImage+Storage.h"
+#import "NSDictionary+Storage.h"

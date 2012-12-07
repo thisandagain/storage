@@ -57,7 +57,7 @@ Persisting to the temporary and documents application directories is equaly simp
 - (void)persistData:(id)data withExtension:(NSString *)ext toLocation:(Location)location success:(void (^)(NSURL *url, NSUInteger size))success failure:(void (^)(NSError *error))failure;
 ```
 
-Categories simply abstract the process of calling this method on `EDStorageManager` by handling conversion of the class instance into a NSData object. For example, the storage category for UIImage simply passes self into NSData by calling `UIImageJPEGRepresentation()`. 
+Categories simply abstract the process of calling this method on `EDStorageManager` by handling conversion of the class instance into a NSData object. See the `NSData+Storage` implementation  For example, the storage category for UIImage simply passes self into NSData by calling `UIImageJPEGRepresentation()`. 
 
 **If you create a category that you find useful, please let me know! Pull requests are welcome.**
 
@@ -75,6 +75,13 @@ EDStorageDirectoryDocuments
 - (void)persistToCacheWithExtension:(NSString *)extension success:(void (^)(NSURL *url, NSUInteger size))success failure:(void (^)(NSError *error))failure;
 - (void)persistToTempWithExtension:(NSString *)extension success:(void (^)(NSURL *url, NSUInteger size))success failure:(void (^)(NSError *error))failure;
 - (void)persistToDocumentsWithExtension:(NSString *)extension success:(void (^)(NSURL *url, NSUInteger size))success failure:(void (^)(NSError *error))failure;
+```
+
+## NSDictionary+Storage Methods
+```objective-c
+- (void)persistToCache:(void (^)(NSURL *url, NSUInteger size))success failure:(void (^)(NSError *error))failure;
+- (void)persistToTemp:(void (^)(NSURL *url, NSUInteger size))success failure:(void (^)(NSError *error))failure;
+- (void)persistToDocuments:(void (^)(NSURL *url, NSUInteger size))success failure:(void (^)(NSError *error))failure;
 ```
 
 ## UIImage+Storage Methods
