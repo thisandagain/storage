@@ -10,6 +10,11 @@
 
 @implementation EDStorageOperation
 
+@synthesize target = _target;
+@synthesize size = _size;
+@synthesize complete = _complete;
+@synthesize error = _error;
+
 #pragma mark - Init
 
 - (id)initWithData:(id)data forURL:(NSURL *)url
@@ -34,17 +39,12 @@
 
 - (void)main
 {
-    @try 
-    {        
-        @autoreleasepool {
-            NSError *err;
-            self.complete = [dataset writeToURL:self.target options:NSDataWritingAtomic error:&err];
-            if (err) {
-                _error = err;
-            }
+    @autoreleasepool {
+        NSError *err;
+        self.complete = [dataset writeToURL:self.target options:NSDataWritingAtomic error:&err];
+        if (err) {
+            _error = err;
         }
-    } @catch (NSException *exception) {
-        [exception raise];
     }
 }
 

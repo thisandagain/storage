@@ -10,6 +10,9 @@
 
 @implementation EDViewController
 
+@synthesize sampleImage = _sampleImage;
+@synthesize savedImage = _savedImage;
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad

@@ -23,6 +23,13 @@
 		C32B9C20159659B900AD3365 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C32B9C1E159659B900AD3365 /* InfoPlist.strings */; };
 		C32B9C23159659B900AD3365 /* storageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C32B9C22159659B900AD3365 /* storageTests.m */; };
 		C32B9C3715965E2C00AD3365 /* nayn.png in Resources */ = {isa = PBXBuildFile; fileRef = C32B9C3615965E2C00AD3365 /* nayn.png */; };
+		C3678283171D1AC700117ABA /* Base.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C3678280171D1AC700117ABA /* Base.xcconfig */; };
+		C3678284171D1AC700117ABA /* Base.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C3678280171D1AC700117ABA /* Base.xcconfig */; };
+		C3678285171D1AC700117ABA /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C3678281171D1AC700117ABA /* Debug.xcconfig */; };
+		C3678286171D1AC700117ABA /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C3678281171D1AC700117ABA /* Debug.xcconfig */; };
+		C3678287171D1AC700117ABA /* Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C3678282171D1AC700117ABA /* Release.xcconfig */; };
+		C3678288171D1AC700117ABA /* Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C3678282171D1AC700117ABA /* Release.xcconfig */; };
+		C367828A171FBC7300117ABA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3678289171FBC7300117ABA /* Default-568h@2x.png */; };
 		C37C5CD91597D0120089F8C4 /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = C37C5CD71597D0110089F8C4 /* LICENSE.md */; };
 		C37C5CDA1597D0120089F8C4 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C37C5CD81597D0110089F8C4 /* README.md */; };
 		DE49BE9B15B8BAA6005BB13A /* EDStorageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DE49BE9415B8BAA6005BB13A /* EDStorageManager.m */; };
@@ -64,6 +71,10 @@
 		C32B9C21159659B900AD3365 /* storageTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = storageTests.h; sourceTree = "<group>"; };
 		C32B9C22159659B900AD3365 /* storageTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = storageTests.m; sourceTree = "<group>"; };
 		C32B9C3615965E2C00AD3365 /* nayn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nayn.png; path = Images/nayn.png; sourceTree = "<group>"; };
+		C3678280171D1AC700117ABA /* Base.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Base.xcconfig; sourceTree = "<group>"; };
+		C3678281171D1AC700117ABA /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		C3678282171D1AC700117ABA /* Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		C3678289171FBC7300117ABA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		C37C5CD71597D0110089F8C4 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE.md; path = ../LICENSE.md; sourceTree = "<group>"; };
 		C37C5CD81597D0110089F8C4 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		DE49BE9215B8BAA6005BB13A /* EDStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EDStorage.h; path = ../EDStorage/EDStorage.h; sourceTree = "<group>"; };
@@ -117,6 +128,9 @@
 				C30D48D81670314800C45DC8 /* NSDictionary+Storage.m */,
 				C37C5CD71597D0110089F8C4 /* LICENSE.md */,
 				C37C5CD81597D0110089F8C4 /* README.md */,
+				C3678280171D1AC700117ABA /* Base.xcconfig */,
+				C3678281171D1AC700117ABA /* Debug.xcconfig */,
+				C3678282171D1AC700117ABA /* Release.xcconfig */,
 				C32B9BFD159659B900AD3365 /* storage */,
 				C32B9C1B159659B900AD3365 /* storageTests */,
 				C32B9BF6159659B900AD3365 /* Frameworks */,
@@ -191,6 +205,7 @@
 		C32B9C3515965A9800AD3365 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C3678289171FBC7300117ABA /* Default-568h@2x.png */,
 				C32B9C3615965E2C00AD3365 /* nayn.png */,
 			);
 			name = Images;
@@ -273,6 +288,10 @@
 				C32B9C3715965E2C00AD3365 /* nayn.png in Resources */,
 				C37C5CD91597D0120089F8C4 /* LICENSE.md in Resources */,
 				C37C5CDA1597D0120089F8C4 /* README.md in Resources */,
+				C3678283171D1AC700117ABA /* Base.xcconfig in Resources */,
+				C3678285171D1AC700117ABA /* Debug.xcconfig in Resources */,
+				C3678287171D1AC700117ABA /* Release.xcconfig in Resources */,
+				C367828A171FBC7300117ABA /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +300,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C32B9C20159659B900AD3365 /* InfoPlist.strings in Resources */,
+				C3678284171D1AC700117ABA /* Base.xcconfig in Resources */,
+				C3678286171D1AC700117ABA /* Debug.xcconfig in Resources */,
+				C3678288171D1AC700117ABA /* Release.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,6 +389,7 @@
 /* Begin XCBuildConfiguration section */
 		C32B9C24159659B900AD3365 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3678281171D1AC700117ABA /* Debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
@@ -395,6 +418,7 @@
 		};
 		C32B9C25159659B900AD3365 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3678282171D1AC700117ABA /* Release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";

@@ -18,6 +18,8 @@
 
 @implementation EDStorageManager
 
+@synthesize queue = _queue;
+
 #pragma mark - Init
 
 + (EDStorageManager *)sharedInstance
