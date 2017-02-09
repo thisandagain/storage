@@ -9,7 +9,7 @@ In attempting to keep things [DRY](http://en.wikipedia.org/wiki/Don't_repeat_you
 - Speed and safety.
 
 ## Basic Use
-The easiest way to get going with EDStorage is to take a look at the included example application. The XCode project file can be found in `example > storage.xcodeproj`.
+The easiest way to get going with EDStorage is to take a look at the included example application. The Xcode project file can be found in `example > storage.xcodeproj`.
 
 In order to include EDStorage in your project, you'll want to add the entirety of the `EDStorage` directory to your project. EDStorage is built on top of foundation libraries and so no additional frameworks are needed. To bring in all of the included storage categories, simply:
 
